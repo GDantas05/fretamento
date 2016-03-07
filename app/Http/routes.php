@@ -28,6 +28,7 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::get('tipo_veiculos/novo', ['as' => 'tipo_veiculos.novo', 'uses' => 'TipoVeiculoController@novo']);
     Route::post('tipo_veiculos/inserir', ['as' => 'tipo_veiculos.inserir', 'uses' => 'TipoVeiculoController@inserir']);
     Route::get('tipo_veiculos/edita/{id}', ['as' => 'tipo_veiculos.edita', 'uses' => 'TipoVeiculoController@edita']);
+    Route::post('tipo_veiculos/update/{id}', ['as' => 'tipo_veiculos.update', 'uses' => 'TipoVeiculoController@update']);
     Route::get('tipo_veiculos/remove/{id}', ['as' => 'tipo_veiculos.remove', 'uses' => 'TipoVeiculoController@remove']);
 });
 /*Route::get('/', function() {

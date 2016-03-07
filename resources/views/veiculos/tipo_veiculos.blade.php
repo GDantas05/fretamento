@@ -2,6 +2,10 @@
 @section('content')
   @if (old('desc_veiculo'))
     <div class="alert alert-success">Veículo cadastrado com sucesso</div>
+  @elseif(old('update'))
+    <div class="alert alert-success">Veículo alterado com sucesso</div>
+  @elseif(old('delete'))
+    <div class="alert alert-success">Veículo deletado com sucesso</div>  
   @endif
   <a href="{{ route('tipo_veiculos.novo') }}" class="btn btn-default">Novo</a>
   <br>
