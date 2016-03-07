@@ -108,6 +108,9 @@
               <i class="fa fa-file"></i> <span>Cadastros</span> <i class="fa fa-angle-left pull-right"></i>
             </a>
             <ul class="treeview-menu">
+              <li><a href="{{ route('tipo_veiculos') }}"><i class="fa fa-circle-o"></i>Tipos de Veículos</a></li>
+            </ul>
+            <ul class="treeview-menu">
               <li><a href="{{ route('veiculos') }}"><i class="fa fa-circle-o"></i>Veículos</a></li>
             </ul>
           </li>

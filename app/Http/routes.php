@@ -24,6 +24,10 @@
 Route::group(['middleware' => ['web', 'auth']], function () {
     Route::get('index', ['as' => 'index', 'uses' => 'IndexController@index']);
     Route::get('veiculos', ['as' => 'veiculos', 'uses' => 'VeiculosController@index']);
+    Route::get('tipo_veiculos', ['as' => 'tipo_veiculos', 'uses' => 'TipoVeiculoController@listagem']);
+    Route::get('tipo_veiculos/novo', ['as' => 'tipo_veiculos.novo', 'uses' => 'TipoVeiculoController@novo']);
+    Route::get('tipo_veiculos/edita/{id}', ['as' => 'tipo_veiculos.edita', 'uses' => 'TipoVeiculoController@edita']);
+    Route::get('tipo_veiculos/remove/{id}', ['as' => 'tipo_veiculos.edita', 'uses' => 'TipoVeiculoController@remove']);
 });
 /*Route::get('/', function() {
     return view('auth/login');
