@@ -16,4 +16,22 @@ class TipoVeiculoController extends Controller
 
         return view('veiculos.tipo_veiculos', compact('tipoVeiculos'));
     }
+
+    public function novo()
+    {
+        return view ('veiculos.novo_veiculo');
+    }
+
+    public function inserir(TipoVeiculoRequest $request)
+    {
+
+        TipoVeiculo::create($request->all());
+
+        if($request->input('save_back')) {
+            return redirect()->action('TipoVeiculoController@listagem')->withInput($request->only('desc_veiculo'));
+        } else {
+            return redirect()->action('TipoVeiculoController@novo')->withInput($request->only('desc_veiculo'));
+        }
+
+    }
 }
