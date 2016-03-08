@@ -13,8 +13,10 @@ class TipoVeiculoController extends Controller
     public function listagem()
     {
         $tipoVeiculos = TipoVeiculo::paginate(10);
+        $operacao = 'listagem';
 
-        return view('veiculos.tipo_veiculos', compact('tipoVeiculos'));
+
+        return view('veiculos.tipo_veiculos', compact('tipoVeiculos', 'operacao'));
     }
 
     public function novo()
@@ -28,9 +30,9 @@ class TipoVeiculoController extends Controller
         TipoVeiculo::create($request->all());
 
         if($request->input('save_back')) {
-            return redirect()->action('TipoVeiculoController@listagem')->withInput($request->only('desc_veiculo'));
+            return redirect()->action('TipoVeiculoController@listagem')->withInput($request->only('DESC_TIPO_VEIC'));
         } else {
-            return redirect()->action('TipoVeiculoController@novo')->withInput($request->only('desc_veiculo'));
+            return redirect()->action('TipoVeiculoController@novo')->withInput($request->only('DESC_TIPO_VEIC'));
         }
 
     }
@@ -47,9 +49,18 @@ class TipoVeiculoController extends Controller
         $novoValor = $request->all();
         $veiculo = TipoVeiculo::find($id);
 
-        $veiculo->desc_veiculo = $novoValor['desc_veiculo'];
+        $veiculo->DESC_TIPO_VEIC = $novoValor['DESC_TIPO_VEIC'];
         $veiculo->save();
 
         return redirect()->action('TipoVeiculoController@listagem')->withInput($request->only('update'));
+    }
+
+    public function remove($id)
+    {
+        $veiculo = TipoVeiculo::find($id);
+
+        $veiculo->delete();
+
+        return redirect()->route('tipo_veiculos', ['operacao' => 'delete']);
     }
 }

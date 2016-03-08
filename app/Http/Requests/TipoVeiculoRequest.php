@@ -24,7 +24,7 @@ class TipoVeiculoRequest extends Request
     public function rules()
     {
         return [
-            'desc_veiculo' => 'required'
+            'DESC_TIPO_VEIC' => 'required'
         ];
     }
 

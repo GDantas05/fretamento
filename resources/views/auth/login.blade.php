@@ -34,7 +34,7 @@
         <form action="{{ url('/auth/login') }}" method="post">
           {!! csrf_field() !!}
           <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-            <input type="email" class="form-control" placeholder="Email" name="email" value="{{ old('email') }}">
+            <input type="email" class="form-control" placeholder="E-Mail" name="email" value="{{ old('email') }}">
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
           </div>
           @if (isset($errors) && $errors->has('email'))
@@ -52,7 +52,7 @@
             </span>
           @endif
             <div class="form-group">
-              <button type="submit" class="btn btn-primary btn-block btn-flat" class="form">Login</button>
+              <button type="submit" class="btn btn-primary btn-block btn-flat">Login</button>
             </div>
             <div class="col-xs-8 col-xs-offset-3">
               <a class="text-center" href="{{ url('/password/reset') }}">Esqueceu sua senha ?</a>
